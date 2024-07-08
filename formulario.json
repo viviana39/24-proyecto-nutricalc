@@ -1,0 +1,27 @@
+{[
+    <label><span>Tu Sexo</span></label> <select id="gender"
+type="select" name="gender-input">
+<option disabled="" selected="">Selecciona tu sexo</option>
+<option value="h">Hombre</option>
+<option value="m">Mujer</option>
+</select></div>
+<div> <label><span>Tu Edad</span></label> <input id="age"
+type="text" min="10" max="99" maxlength="2" name="age-input"
+placeholder="Introduce tu edad" valid="true"> <span
+id="invalidAge" style="display: none;"></span></div>
+</div>
+<div class="flex">
+<div> <label><span>Tu peso</span><sup>kg</sup></label> <input
+id="weight" type="text" min="30" max="250" maxlength="6"
+name="weight-input" placeholder="Introduce el peso en kg."
+valid="true"> <span id="invalidWeight"
+style="display: none;"></span></div>
+<div> <label><span>Tu altura</span><sup>cm</sup></label> <input
+id="height" type="text" min="50" max="400" maxlength="3"
+name="height-input" placeholder="Introduce la altura en cm."
+valid="true"> <span id="invalidHeight"
+style="display: none;"></span></div>]
+    
+                                                }
+                                    
+                                    
