@@ -6,6 +6,10 @@ calculadoraNutriCalc.use(express.static('static/front'))
 calculadoraNutriCalc.get("", (req, res) =>{
     res.send("Hola Nutricalc")
 })
+
+calculadoraNutriCalc.get("/nutricalc", (req, res) =>{
+        res.send("./index.html")
+})
 calculadoraNutriCalc.get("")
 
 calculadoraNutriCalc.listen(port, () => {
