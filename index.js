@@ -1,7 +1,7 @@
 const express = require("express")
 const calculadoraNutriCalc = express()
 const port = 3000
-calculadoraNutriCalc.use(express.static('static/front'))
+calculadoraNutriCalc.use(express.static('static/Front'))
 
 calculadoraNutriCalc.get("", (req, res) =>{
     res.send("Hola Nutricalc")
