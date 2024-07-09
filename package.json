@@ -1,0 +1,15 @@
+{
+  "name": "24-proyecto-nutricalc",
+  "version": "1.0.0",
+  "description": "Proyecto de calculadora de calorías y recomendación nutricional.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "24-proyecto-nutricalc"
+  },
+  "author": "JGHJaime",
+  "license": "MIT"
+}
