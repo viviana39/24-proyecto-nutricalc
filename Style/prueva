@@ -1,0 +1,178 @@
+<div class="elementor-widget-container">
+  <div class="form-container">
+    <div class="flex">
+      <div>
+        <label><span>Tu Sexo</span></label>
+        <select id="gender" name="gender-input">
+          <option disabled selected>Selecciona tu sexo</option>
+          <option value="h">Hombre</option>
+          <option value="m">Mujer</option>
+        </select>
+      </div>
+      <div>
+        <label><span>Tu Edad</span></label>
+        <input id="age" type="text" min="10" max="99" maxlength="2" name="age-input" placeholder="Introduce tu edad" valid="true">
+        <span id="invalidAge" style="display: none;"></span>
+      </div>
+    </div>
+    <div class="flex">
+      <div>
+        <label><span>Tu peso</span><sup>kg</sup></label>
+        <input id="weight" type="text" min="30" max="250" maxlength="6" name="weight-input" placeholder="Introduce el peso en kg." valid="true">
+        <span id="invalidWeight" style="display: none;"></span>
+      </div>
+      <div>
+        <label><span>Tu altura</span><sup>cm</sup></label>
+        <input id="height" type="text" min="50" max="400" maxlength="3" name="height-input" placeholder="Introduce la altura en cm." valid="true">
+        <span id="invalidHeight" style="display: none;"></span>
+      </div>
+    </div>
+    <div class="flex">
+      <div>
+        <label><span>¿Cuál es tu nivel de actividad física diaria?</span></label>
+        <select id="activity-level" name="activity-level-input">
+          <option disabled selected>Selecciona una opción</option>
+          <option value="sedentario">Sedentario: poco o nada de ejercicio al día</option>
+          <option value="ligera">Actividad ligera: ejercicio ligero o deporte 1-3 días a la semana</option>
+          <option value="moderada">Actividad moderada: ejercicio moderado o deporte 3-5 días a la semana</option>
+          <option value="intensa">Actividad intensa: ejercicio intenso o deporte 6-7 días a la semana</option>
+          <option value="muy intensa">Actividad muy intensa: ejercicio muy intenso o trabajo físico y ejercicio diario</option>
+        </select>
+      </div>
+    </div>
+    <div class="flex">
+      <div>
+        <label><span>¿Cuál es tu objetivo?</span></label>
+        <select id="goal" name="goal-input">
+          <option disabled selected>Selecciona una opción</option>
+          <option value="1">Aumentar masa muscular</option>
+          <option value="2">Bajar grasa corporal</option>
+          <option value="3">Mantener el peso actual</option>
+        </select>
+      </div>
+    </div>
+    <input id="calculateBtn" type="button" value="Calcular" class="btn-calculate">
+    <span id="invalidForm" style="display: none; color: red; text-align: center;">Por favor, comprueba los campos inválidos o vacíos</span>
+  </div>
+  <p class="result"><strong id="showResult"></strong></p>
+  <table class="table" id="result-table" style="visibility: hidden">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Nivel</th>
+        <th scope="col">kcal/día</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr id="light"><td class="result-type"></td><td class="results"></td></tr>
+      <tr id="moderate"><td class="result-type"></td><td class="results"></td></tr>
+      <tr id="aggressive"><td class="result-type"></td><td class="results"></td></tr>
+      <tr id="very_aggressive"><td class="result-type"></td><td class="results"></td></tr>
+    </tbody>
+  </table>
+  <script type="text/javascript">
+    (function() {
+      const calculate = document.querySelector('#calculateBtn');
+      const gender = document.querySelector('#gender');
+      const age = document.querySelector('#age');
+      const weight = document.querySelector('#weight');
+      const height = document.querySelector('#height');
+      const activityLevel = document.querySelector('#activity-level');
+      const goal = document.querySelector('#goal');
+      const resultTable = document.querySelector('#result-table');
+      const resultTitle = document.querySelector("#showResult");
+      const regexOnlyNumbers = new RegExp(/^(\d+|\d{1,3},\d{1,2}|\d{1,2}.\d{1,2})$/);
+      const invalidForm = document.querySelector('#invalidForm');
+
+      const fields = [
+        { element: age, invalidId: '#invalidAge', min: 10, max: 99 },
+        { element: weight, invalidId: '#invalidWeight', min: 30, max: 250 },
+        { element: height, invalidId: '#invalidHeight', min: 50, max: 400 },
+      ];
+
+      fields.forEach(field => {
+        field.element.addEventListener('input', (e) => {
+          e.preventDefault();
+          const { element, invalidId, min, max } = field;
+          const invalidElement = document.querySelector(invalidId);
+          if (!regexOnlyNumbers.test(element.value)) {
+            setInvalid(invalidElement, element, 'El campo contiene caracteres inválidos');
+          } else if (parseInt(element.value) < min) {
+            setInvalid(invalidElement, element, `El mínimo es ${min}`);
+          } else if (parseInt(element.value) > max) {
+            setInvalid(invalidElement, element, `El máximo es ${max}`);
+          } else {
+            setValid(invalidElement, element);
+          }
+        });
+      });
+
+      function setInvalid(invalidElement, element, message) {
+        invalidElement.innerText = message;
+        invalidElement.style.display = 'block';
+        invalidElement.style.color = 'red';
+        element.setAttribute('valid', false);
+        element.style.border = '1px solid red';
+      }
+
+      function setValid(invalidElement, element) {
+        invalidElement.style.display = 'none';
+        element.setAttribute('valid', true);
+        element.style.border = '1px solid #ced4da';
+      }
+
+      calculate.addEventListener('click', () => {
+        resultTable.style.visibility = 'hidden';
+        if (validateForm()) {
+          invalidForm.style.display = 'none';
+          if (gender.value && age.value && weight.value && height.value && activityLevel.value && goal.value) {
+            calculate.value = 'Calculando...';
+            const result = tmb(gender.value, parseFloat(weight.value.replace(',', '.')), parseInt(height.value), parseInt(age.value), activityLevel.value);
+            setTimeout(() => showResults(result, goal.value), 500);
+          }
+        } else {
+          invalidForm.style.display = 'block';
+          calculate.value = 'Volver a intentar';
+        }
+      });
+
+      function tmb(gender, weight, height, age, activityLevel) {
+        const rmb = (10 * weight) + (6.25 * height) - (5 * age) + (gender === "h" ? 5 : -161);
+        const activityFactors = {
+          sedentario: 1.2,
+          ligera: 1.375,
+          moderada: 1.55,
+          intensa: 1.725,
+          muy_intensa: 1.9,
+        };
+        return rmb * (activityFactors[activityLevel] || 1.2);
+      }
+
+      function validateForm() {
+        const invalidInputs = [];
+        document.querySelectorAll('.form-container input, .form-container select').forEach(input => {
+          if (input.getAttribute('valid') === "false" || !input.value || input.value.length <= 0 || input.selected) {
+            input.style.border = '1px solid red';
+            invalidInputs.push(input);
+          } else {
+            input.style.border = '1px solid #ced4da';
+          }
+        });
+        return invalidInputs.length === 0;
+      }
+
+      function showResults(result, goalValue) {
+        const goals = {
+          1: { type: 'Superávit', factor: 1.1 },
+          2: { type: 'Déficit', factor: 0.9 },
+          3: { type: 'Equilibrio', factor: 1 },
+        };
+        const goal = goals[goalValue] || goals[3];
+        const levels = {
+          light: (result * goal.factor).toFixed(),
+          moderate: (result * goal.factor * 1.05).toFixed(),
+          aggressive: (result * goal.factor * 1.1).toFixed(),
+          veryAggressive: (result * goal.factor * 1.15).toFixed(),
+        };
+
+        const colors = ['#FFF4A3', '#FFF080', '#FFEC5C', '#FFE636'];
+        ['light', 'moderate', 'aggressive', 'very_aggressive'].forEach((level, index)
