@@ -11,5 +11,8 @@
     "url": "24-proyecto-nutricalc"
   },
   "author": "JGHJaime",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "espress": "^0.0.0"
+  }
 }
