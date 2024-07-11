@@ -63,7 +63,7 @@
     --e-global-typography-accent-line-height: 1.2em;
     --e-global-typography-accent-letter-spacing: 0px;
 }
-<div class="elementor-element elementor-element-b25d100 elementor-widget elementor-widget-html" data-id="b25d100" data-element_type="widget" id="calculator_fg" data-widget_type="html.default">
+ <div class="elementor-element elementor-element-b25d100 elementor-widget elementor-widget-html" data-id="b25d100" data-element_type="widget" id="calculator_fg" data-widget_type="html.default">
   <div class="elementor-widget-container">
     <div class="form-container">
       <!-- Sexo y Edad -->
@@ -140,7 +140,7 @@
     </table>
 
     <script type="text/javascript">
-      (function() {
+      function() {
         const calculate = document.querySelector('#calculateBtn');
         const gender = document.querySelector('#gender');
         const age = document.querySelector('#age');
@@ -151,9 +151,10 @@
         const result = document.querySelector('#showResult');
         const resultTable = document.querySelector('#result-table');
 
-        calculate.addEventListener('click', () => {
+        calculate.addEventListener('click'), () => {
           const ageValue = parseInt(age.value);
           const weightValue = parseFloat(weight.value);
           const heightValue = parseInt(height.value);
 
-          if (isNaN(ageValue) || isNaN(weightValue) || isNaN
+          if isNaN(ageValue) || isNaN(weightValue) || isNaN=
+        }}

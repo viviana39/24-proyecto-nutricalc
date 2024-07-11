@@ -11,19 +11,22 @@
       </div>
       <div>
         <label><span>Tu Edad</span></label>
-        <input id="age" type="text" min="10" max="99" maxlength="2" name="age-input" placeholder="Introduce tu edad" valid="true">
+        <input id="age" type="text" min="10" max="99" maxlength="2" name="age-input" placeholder="Introduce tu edad"
+          valid="true">
         <span id="invalidAge" style="display: none;"></span>
       </div>
     </div>
     <div class="flex">
       <div>
         <label><span>Tu peso</span><sup>kg</sup></label>
-        <input id="weight" type="text" min="30" max="250" maxlength="6" name="weight-input" placeholder="Introduce el peso en kg." valid="true">
+        <input id="weight" type="text" min="30" max="250" maxlength="6" name="weight-input"
+          placeholder="Introduce el peso en kg." valid="true">
         <span id="invalidWeight" style="display: none;"></span>
       </div>
       <div>
         <label><span>Tu altura</span><sup>cm</sup></label>
-        <input id="height" type="text" min="50" max="400" maxlength="3" name="height-input" placeholder="Introduce la altura en cm." valid="true">
+        <input id="height" type="text" min="50" max="400" maxlength="3" name="height-input"
+          placeholder="Introduce la altura en cm." valid="true">
         <span id="invalidHeight" style="display: none;"></span>
       </div>
     </div>
@@ -36,7 +39,8 @@
           <option value="ligera">Actividad ligera: ejercicio ligero o deporte 1-3 días a la semana</option>
           <option value="moderada">Actividad moderada: ejercicio moderado o deporte 3-5 días a la semana</option>
           <option value="intensa">Actividad intensa: ejercicio intenso o deporte 6-7 días a la semana</option>
-          <option value="muy intensa">Actividad muy intensa: ejercicio muy intenso o trabajo físico y ejercicio diario</option>
+          <option value="muy intensa">Actividad muy intensa: ejercicio muy intenso o trabajo físico y ejercicio diario
+          </option>
         </select>
       </div>
     </div>
@@ -52,7 +56,8 @@
       </div>
     </div>
     <input id="calculateBtn" type="button" value="Calcular" class="btn-calculate">
-    <span id="invalidForm" style="display: none; color: red; text-align: center;">Por favor, comprueba los campos inválidos o vacíos</span>
+    <span id="invalidForm" style="display: none; color: red; text-align: center;">Por favor, comprueba los campos
+      inválidos o vacíos</span>
   </div>
   <p class="result"><strong id="showResult"></strong></p>
   <table class="table" id="result-table" style="visibility: hidden">
@@ -63,14 +68,26 @@
       </tr>
     </thead>
     <tbody class="text-center">
-      <tr id="light"><td class="result-type"></td><td class="results"></td></tr>
-      <tr id="moderate"><td class="result-type"></td><td class="results"></td></tr>
-      <tr id="aggressive"><td class="result-type"></td><td class="results"></td></tr>
-      <tr id="very_aggressive"><td class="result-type"></td><td class="results"></td></tr>
+      <tr id="light">
+        <td class="result-type"></td>
+        <td class="results"></td>
+      </tr>
+      <tr id="moderate">
+        <td class="result-type"></td>
+        <td class="results"></td>
+      </tr>
+      <tr id="aggressive">
+        <td class="result-type"></td>
+        <td class="results"></td>
+      </tr>
+      <tr id="very_aggressive">
+        <td class="result-type"></td>
+        <td class="results"></td>
+      </tr>
     </tbody>
   </table>
   <script type="text/javascript">
-    (function() {
+    (function () {
       const calculate = document.querySelector('#calculateBtn');
       const gender = document.querySelector('#gender');
       const age = document.querySelector('#age');
@@ -172,7 +189,9 @@
           moderate: (result * goal.factor * 1.05).toFixed(),
           aggressive: (result * goal.factor * 1.1).toFixed(),
           veryAggressive: (result * goal.factor * 1.15).toFixed(),
-        };
+        }
+      };
 
-        const colors = ['#FFF4A3', '#FFF080', '#FFEC5C', '#FFE636'];
-        ['light', 'moderate', 'aggressive', 'very_aggressive'].forEach((level, index)
+      const colors = ['#FFF4A3', '#FFF080', '#FFEC5C', '#FFE636'];
+      ['light', 'moderate', 'aggressive', 'very_aggressive'].forEach((level, index))
+    })
