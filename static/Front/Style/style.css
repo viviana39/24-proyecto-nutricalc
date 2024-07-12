@@ -1,3 +1,24 @@
+
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #d3d3d3;
+}
+
+div {
+  background: green;
+}
+
+/* Estilo para el h1 */
+.h1  {
+  color: #333; /* Color de texto negro */
+  font-size: 24px; /* Tamaño de fuente de 24px */
+  margin-bottom: 10px; /* Margen inferior de 10px */
+}
+
 #calculator_fg .flex {
     width: 100%;
     display: flex;
@@ -62,7 +83,10 @@
     --e-global-typography-accent-font-weight: bold;
     --e-global-typography-accent-line-height: 1.2em;
     --e-global-typography-accent-letter-spacing: 0px;
+
+    
 }
+
  <div class="elementor-element elementor-element-b25d100 elementor-widget elementor-widget-html" data-id="b25d100" data-element_type="widget" id="calculator_fg" data-widget_type="html.default">
   <div class="elementor-widget-container">
     <div class="form-container">
@@ -85,12 +109,12 @@
       <!-- Peso y Altura -->
       <div class="flex">
         <div>
-          <label><span>Tu peso</span><sup>kg</sup></label>
+          <label><span>Tu peso</span><sup></sup></label>
           <input id="weight" type="text" min="30" max="250" maxlength="6" name="weight-input" placeholder="Introduce el peso en kg." valid="true">
           <span id="invalidWeight" style="display: none;"></span>
         </div>
         <div>
-          <label><span>Tu altura</span><sup>cm</sup></label>
+          <label><span>Tu altura</span><sup></sup></label>
           <input id="height" type="text" min="50" max="400" maxlength="3" name="height-input" placeholder="Introduce la altura en cm." valid="true">
           <span id="invalidHeight" style="display: none;"></span>
         </div>
@@ -138,6 +162,7 @@
         <tr id="very_aggressive"><td class="result-type"></td><td class="results"></td></tr>
       </tbody>
     </table>
+    <a href=" https://calcdieta.ienva.org/?lang=es /" target="_blank"> sigue las siguientes recomendaciones</a>
 
     <script type="text/javascript">
       function() {
