@@ -1,3 +1,30 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #d3d3d3;
+  }
+  
+  div {
+    background: green;
+  }
+  
+  /* Estilo para el h1 */
+  .h1  {
+    color: #333; /* Color de texto negro */
+    font-size: 24px; /* Tamaño de fuente de 24px */
+    margin-bottom: 10px; /* Margen inferior de 10px */
+  }
+  
+  #calculator_fg .flex {
+      width: 100%;
+      display: flex;
+      margin: 0.3rem;
+      padding: 0.4rem;
+      gap: 0.5rem;
+  }
+
 #calculator_fg .flex {
     width: 100%;
     display: flex;
