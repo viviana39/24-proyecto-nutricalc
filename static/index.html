@@ -9,144 +9,146 @@
 </head>
 
 <body>
-  
-  <div class="elementor-element elementor-element-b25d100 elementor-widget elementor-widget-html" data-id="b25d100"
-    data-element_type="widget" id="calculator_fg" data-widget_type="html.default">
 
-    
+  <div class="caja" id="calculator_fg">
+
+
     <style>
       h1 {
-          text-align: center;
-          color: violet;
+        text-align: center;
+        color: violet;
       }
-  </style>
-  <title>NUTRICAL CALCULADORA</title>
-</head>
-<body>
-  <h1>NUTRICAL CALCULADORA</h1>
-</body>
+    </style>
+    <title>NUTRICAL CALCULADORA</title>
+    </head>
+
+    <body>
+      <h1>NUTRICAL CALCULADORA</h1>
+    </body>
 
 
-<style>
-  body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      padding: 20px;
-      background-color: #f4f4f4;
-  }
-  h1 {
-      color: #aa6666;
-  }
-  p {
-      color: #555;
-  }
-</style>
-</head>
-<body>
-<h1>CALCULADORA CALORÍFICA</h1>
-<p>
-  En esta calculadora encontrarás, según tu peso, talla y edad, lo que necesites para tus retos mensuales. Comprueba tu porcentaje calorífico con esta maravillosa calculadora, te sorprenderás y te daremos tips para comer de manera agradable y mantener lo que necesitas. También puedes visitar a nuestro nutricionista...
-</p>
-<p>
-  ¡Aprovecha esta magnífica calculadora calorífica y sus cualidades realizadas por un experto en la materia!
-</p>
-</body> 
-      
-       
-     
-          
-    
-    <div class="elementor-widget-container">
-      <div class="form-container">
-        <div class="flex">
-         
-          <div>
-            <label><span>Tu Sexo</span></label>
-            <select id="gender" name="gender-input">
-              <option disabled selected>Selecciona tu sexo</option>
-              <option value="h">Hombre</option>
-              <option value="m">Mujer</option>
-            </select>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+
+      h1 {
+        color: #aa6666;
+      }
+
+      p {
+        color: #555;
+      }
+    </style>
+    </head>
+
+    <body>
+      <h1>CALCULADORA CALORÌFICA</h1>
+      <p>
+        En esta calculadora encontrarás, según tu peso, talla y edad, lo que necesites para tus retos diarios. Comprueba
+        tu medida de calorias diarias con esta maravillosa calculadora, te sorprenderás y te daremos tips para comer de
+        manera agradable y mantener lo que necesitas
+      <p>
+        <a href="https://www.ienva.org/es/dietas-por-calorias">ienva.org/es/dietas-por-calorias</a>
+      </p>
+      También puedes visitar a nuestro nutricionista...
+      </p>
+      <p>
+        ¡Aprovecha esta magnífica calculadora de calorias y sus cualidades realizadas por un experto en la materia!
+      </p>
+      <div class="elementor-widget-container">
+        <div class="form-container">
+          <div class="flex">
+            <div>
+              <label><span>Tu Sexo</span></label>
+              <select id="gender" name="gender-input">
+                <option disabled selected>Selecciona tu sexo</option>
+                <option value="h">Hombre</option>
+                <option value="m">Mujer</option>
+              </select>
+            </div>
+            <div>
+              <label><span>Tu Edad</span></label>
+              <input id="age" type="text" min="10" max="99" maxlength="2" name="age-input"
+                placeholder="Introduce tu edad" valid="true">
+              <span id="invalidAge" style="display: none;"></span>
+            </div>
           </div>
-          <div>
-            <label><span>Tu Edad</span></label>
-            <input id="age" type="text" min="10" max="99" maxlength="2" name="age-input" placeholder="Introduce tu edad"
-              valid="true">
-            <span id="invalidAge" style="display: none;"></span>
+          <div class="flex">
+            <div>
+              <label><span>Tu peso</span><sup>kg</sup></label>
+              <input id="weight" type="text" min="30" max="250" maxlength="6" name="weight-input"
+                placeholder="Introduce el peso en kg." valid="true">
+              <span id="invalidWeight" style="display: none;"></span>
+            </div>
+            <div>
+              <label><span>Tu altura</span><sup>cm</sup></label>
+              <input id="height" type="text" min="50" max="400" maxlength="3" name="height-input"
+                placeholder="Introduce la altura en cm." valid="true">
+              <span id="invalidHeight" style="display: none;"></span>
+            </div>
           </div>
+          <div class="flex">
+            <div>
+              <label><span>¿Cuál es tu nivel de actividad física diaria?</span></label>
+              <select id="activity-level" name="activity-level-input">
+                <option disabled selected>Selecciona una opción</option>
+                <option value="sedentario">Sedentario: poco o nada de ejercicio al día</option>
+                <option value="ligera">Actividad ligera: ejercicio ligero o deporte 1-3 días a la semana</option>
+                <option value="moderada">Actividad moderada: ejercicio moderado o deporte 3-5 días a la semana</option>
+                <option value="intensa">Actividad intensa: ejercicio intenso o deporte 6-7 días a la semana</option>
+                <option value="muy intensa">Actividad muy intensa: ejercicio muy intenso o trabajo físico y ejercicio
+                  diario
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="flex">
+            <div>
+              <label><span>¿Cuál es tu objetivo?</span></label>
+              <select id="goal" name="goal-input">
+                <option disabled selected>Selecciona una opción</option>
+                <option value="1">Aumentar masa muscular</option>
+                <option value="2">Bajar grasa corporal</option>
+                <option value="3">Mantener el peso actual</option>
+              </select>
+            </div>
+          </div>
+          <input id="calculateBtn" type="button" value="Calcular" class="btn-calculate">
+          <span id="invalidForm" style="display: none; color: red; text-align: center;">Por favor, comprueba los campos
+            inválidos o vacíos</span>
         </div>
-        <div class="flex">
-          <div>
-            <label><span>Tu peso</span><sup>kg</sup></label>
-            <input id="weight" type="text" min="30" max="250" maxlength="6" name="weight-input"
-              placeholder="Introduce el peso en kg." valid="true">
-            <span id="invalidWeight" style="display: none;"></span>
-          </div>
-          <div>
-            <label><span>Tu altura</span><sup>cm</sup></label>
-            <input id="height" type="text" min="50" max="400" maxlength="3" name="height-input"
-              placeholder="Introduce la altura en cm." valid="true">
-            <span id="invalidHeight" style="display: none;"></span>
-          </div>
-        </div>
-        <div class="flex">
-          <div>
-            <label><span>¿Cuál es tu nivel de actividad física diaria?</span></label>
-            <select id="activity-level" name="activity-level-input">
-              <option disabled selected>Selecciona una opción</option>
-              <option value="sedentario">Sedentario: poco o nada de ejercicio al día</option>
-              <option value="ligera">Actividad ligera: ejercicio ligero o deporte 1-3 días a la semana</option>
-              <option value="moderada">Actividad moderada: ejercicio moderado o deporte 3-5 días a la semana</option>
-              <option value="intensa">Actividad intensa: ejercicio intenso o deporte 6-7 días a la semana</option>
-              <option value="muy intensa">Actividad muy intensa: ejercicio muy intenso o trabajo físico y ejercicio
-                diario
-              </option>
-            </select>
-          </div>
-        </div>
-        <div class="flex">
-          <div>
-            <label><span>¿Cuál es tu objetivo?</span></label>
-            <select id="goal" name="goal-input">
-              <option disabled selected>Selecciona una opción</option>
-              <option value="1">Aumentar masa muscular</option>
-              <option value="2">Bajar grasa corporal</option>
-              <option value="3">Mantener el peso actual</option>
-            </select>
-          </div>
-        </div>
-        <input id="calculateBtn" type="button" value="Calcular" class="btn-calculate">
-        <span id="invalidForm" style="display: none; color: red; text-align: center;">Por favor, comprueba los campos
-          inválidos o vacíos</span>
+        <p class="result"><strong id="showResult"></strong></p>
+        <table class="table" id="result-table" style="visibility: hidden">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Nivel</th>
+              <th scope="col">kcal/día</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr id="light">
+              <td class="result-type"></td>
+              <td class="results"></td>
+            </tr>
+            <tr id="moderate">
+              <td class="result-type"></td>
+              <td class="results"></td>
+            </tr>
+            <tr id="aggressive">
+              <td class="result-type"></td>
+              <td class="results"></td>
+            </tr>
+            <tr id="very_aggressive">
+              <td class="result-type"></td>
+              <td class="results"></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <p class="result"><strong id="showResult"></strong></p>
-      <table class="table" id="result-table" style="visibility: hidden">
-        <thead class="thead-light">
-          <tr>
-            <th scope="col">Nivel</th>
-            <th scope="col">kcal/día</th>
-          </tr>
-        </thead>
-        <tbody class="text-center">
-          <tr id="light">
-            <td class="result-type"></td>
-            <td class="results"></td>
-          </tr>
-          <tr id="moderate">
-            <td class="result-type"></td>
-            <td class="results"></td>
-          </tr>
-          <tr id="aggressive">
-            <td class="result-type"></td>
-            <td class="results"></td>
-          </tr>
-          <tr id="very_aggressive">
-            <td class="result-type"></td>
-            <td class="results"></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
   <script type="text/javascript" src="calculadora-peso.js"></script>
 </body>
