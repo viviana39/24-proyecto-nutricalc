@@ -4,10 +4,9 @@ body {
   justify-content: center;
   height: 100vh;
   background-color: #d3d3d3;
-}
-
-div {
-  background: rgb(101, 217, 237);
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 20px;
 }
 
 /* Estilo para el h1 */
@@ -18,6 +17,16 @@ div {
   /* Tamaño de fuente de 24px */
   margin-bottom: 10px;
   /* Margen inferior de 10px */
+  text-align: center;
+  color: violet;
+}
+
+p {
+  color: #555;
+}
+
+div {
+  background: rgb(101, 217, 237);
 }
 
 #calculator_fg .flex {
