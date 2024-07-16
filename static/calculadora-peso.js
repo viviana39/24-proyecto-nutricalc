@@ -165,10 +165,10 @@
                     } else if (goalValue === "2") {
                         let resultType = 'Déficit';
                         levels = {
-                            light: (result * 0.6).toFixed(),
-                            moderate: (result * 0.7).toFixed(),
-                            aggressive: (result * 0.8).toFixed(),
-                            veryAggressive: (result * 0.9).toFixed()
+                            light: (result * 0.9).toFixed(),
+                            moderate: (result * 0.8).toFixed(),
+                            aggressive: (result * 0.7).toFixed(),
+                            veryAggressive: (result * 0.6).toFixed()
                         }
                         resultTable.querySelector('#light .result-type').innerHTML = `${resultType} ligero`;
                         resultTable.querySelector('#light .results').innerHTML = levels.light;
