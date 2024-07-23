@@ -3,11 +3,14 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'krono12',
+  password: 'krono',
   database: 'nutrikal',
 });
 
 con.connect(function(err) {
   if (err) throw err;
-  console.log("Connected!");
+  con.query("SELECT * FROM usuario", function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+  });
 });
