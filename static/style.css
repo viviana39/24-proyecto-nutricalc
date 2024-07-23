@@ -29,6 +29,10 @@ div {
   background: rgb(101, 217, 237);
 }
 
+td {
+  padding: 1ch;
+}
+
 #calculator_fg .flex {
   width: 100%;
   display: flex;

@@ -4,5 +4,5 @@ const port = 3000
 
 calculadoraNutriCalc.use(express.static('static'))
 calculadoraNutriCalc.listen(port, () => {
-    console.log(`Calculadora escuchando en http://localhost:${port}`)
+    console.log(`Calculadora escuchando en http://localhnode ost:${port}`)
 })
