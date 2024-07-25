@@ -1,32 +1,24 @@
-const express = require("express");
-const { consultaUsuarios } = require("./bd");
-const calculadoraNutriCalc = express();
-const port = 3000;
+const express = require("express")
+const calculadoraNutriCalc = express()
+const port = 3000
 
-calculadoraNutriCalc.use(express.json());
-
-calculadoraNutriCalc.use(express.static("static"));
+calculadoraNutriCalc.use(express.static('static'))
 calculadoraNutriCalc.listen(port, () => {
-  console.log(`Calculadora escuchando en http://localhost puerto:${port}`);
+    console.log(`Calculadora escuchando en http://localhost puerto:${port}`)
+})
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "krono",
+  database: "nutrikal"
 });
 
-calculadoraNutriCalc.post("/login", (req, res) => {
-  const user = req.body;
-
-  if (!user?.name) {
-    res.send({ error: "Falta el nombre" });
-  } else if (!user?.password) {
-    res.send({ error: "Falta la contraseña" });
-  }
-
-  if (user?.name && user?.password) {
-    consultaUsuarios(user.name, user.password)
-      .then((user) => {
-        res.send(user);
-      })
-      .catch((error) => {
-        console.log(error);
-        res.send({ error: true, message: error });
-      });
-  }
+con.connect(function(err) {
+  if (err) throw err;
+  con.query("SELECT * FROM usuario", function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+  });
 });

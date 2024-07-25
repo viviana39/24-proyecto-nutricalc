@@ -8,9 +8,11 @@ var con = mysql.createConnection({
 });
 
 con.connect(function(err) {
-  if (err) throw err;
+  if (err) throw err;7
   con.query("SELECT * FROM usuario", function (err, result, fields) {
     if (err) throw err;
     console.log(result);
   });
+
+  con.end()
 });
