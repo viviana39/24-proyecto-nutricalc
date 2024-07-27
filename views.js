@@ -1,45 +1,48 @@
-var mysql = require('mysql');
+const express = require('express');
+const mysql = require('mysql');
+const app = express();
+const port = 6000;
 
-module.exports = mysql.createConnection({
+// Crear conexión a la base de datos
+const conexion = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   database: 'usuario',
 });
 
-
-var mysql = require('mysql');
-
-conexion.connect(function (err) {
+// Conectar a la base de datos
+conexion.connect(function(err) {
   if (err) throw err;
+  console.log('Conectado a la base de datos');
 
   const medida = "SELECT * FROM actor";
-  conexion.query(medida, function (err, result) {
-    if (err) {
-      throw err
-    };
+  conexion.query(medida, function(err, result) {
+    if (err) throw err;
 
     console.log(result);
-    conexion.end();
-  })  
+    conexion.end(); // Cerrar la conexión después de la consulta
+  });
 });
 
-exports.nutrikal = (req.res) => {
-  var usuario = Number(req.query.usuario)
-  var medida = Number(req.query.medida)
-  var nutrikalString = nutrikal.tostring()
-  console.log(usuario)
-  console.log(medida)
+// Ruta para manejar la solicitud 'nutrikal'
+app.get('/nutrikal', (req, res) => {
+  var usuario = Number(req.query.usuario);
+  var medida = Number(req.query.medida);
+  var nutrikalString = `${usuario}-${medida}`; // Corregir la conversión a string
 
-  res.send (--> ${nutrikalString}<--)
-}
+  console.log(usuario);
+  console.log(medida);
 
-app.listen(port,() => {
-  console.log(`se escucha en http://localhost:$(port)´
-}
-   
+  res.send(`--> ${nutrikalString} <--`);
+});
+
+// Iniciar el servidor
+app.listen(port, () => {
+  console.log(`Se escucha en http://localhost:${port}`);
+});
 
 
-/* 
+-- /* 
 function generarContrasena(longitud) {
   const caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]|:;<>,.?~";
   let contrasena = "";
@@ -53,4 +56,4 @@ function generarContrasena(longitud) {
 // Uso: generar una contraseña de 12 caracteres
 const contrasenaSegura = generarContrasena(12);
 console.log(contrasenaSegura);
- database:'usuario'
+-- database:'usuario/* 
