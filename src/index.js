@@ -1,6 +1,6 @@
 const express = require("express")
 const calculadoraNutriCalc = express()
-const port = 3000
+const port = 4000
 
 calculadoraNutriCalc.use(express.static('static'))
 calculadoraNutriCalc.listen(port, () => {
