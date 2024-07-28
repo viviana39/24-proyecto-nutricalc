@@ -74,7 +74,18 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'pepito',' ',' ','2024-07-23 00:00:00','Hombre','$2b$10$SgpSmpfcoIhq5fp8bna67e9GifikXk6OT9w.r7gs.EiHJluU0Ez0u'),(2,'marta',' ',' ','2024-07-23 11:01:08','Mujer','$2b$2b$2b$10$pMNbE0kdvQYl693uHF2EAekKfkI2fpaJaWwVI0vduUC4XinFcq7MS');
+INSERT INTO `usuario` VALUES 
+(1,'pepito',' ',' ','2024-07-23 00:00:00','Hombre','$2b$10$SgpSmpfcoIhq5fp8bna67e9GifikXk6OT9w.r7gs.EiHJluU0Ez0u'),
+(2,'marta',' ',' ','2024-07-23 11:01:08','Mujer','$2b$2b$2b$10$pMNbE0kdvQYl693uHF2EAekKfkI2fpaJaWwVI0vduUC4XinFcq7MS'),
+(3,'josete',' ',' ','2024-07-23 11:01:08','Hombre',' '),
+(4,'pilar',' ',' ','2024-07-23 11:01:08','Mujer',' '),
+(5,'manuel',' ',' ','2024-07-23 11:01:08','Hombre',' '),
+(6,'alvaro',' ',' ','2024-07-23 11:01:08','Hombre',' '),
+(7,'francisca',' ',' ','2024-07-23 11:01:08','Mujer',' '),
+(8,'eustaquia',' ',' ','2024-07-23 11:01:08','Mujer',' '),
+(9,'tronca',' ',' ','2024-07-23 11:01:08','Mujer',' '),
+(10,'goku',' ',' ','2024-07-23 11:01:08','Hombre',' ')
+;
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
