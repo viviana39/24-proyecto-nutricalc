@@ -17,7 +17,8 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "express": "^4.19.2",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "sql": "^0.78.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"

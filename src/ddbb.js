@@ -1,9 +1,9 @@
 const bcrypt = require("bcrypt");
-const numSaltRounds = 10; // Número de rondas de sal (ajústalo según tus necesidades)
-const password = "Cronos";
+const mysql = require("mysql");
 
 // Genera el hash de la contraseña
 function generarContrasena(contrasena) {
+  const numSaltRounds = 10; // Número de rondas de sal (ajústalo según tus necesidades)
   bcrypt.hash(contrasena, numSaltRounds, (err, hash) => {
     if (err) {
       console.error("Error al generar el hash:", err);
@@ -13,17 +13,45 @@ function generarContrasena(contrasena) {
   });
 }
 
-const mysql = require("mysql");
-const con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "krono",
-  database: "nutrikal",
+var conexion = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'krono',
+  database: 'nutrikal',
 });
 
-con.connect(function (err) {
-  if (err) throw err;
-});
+conexion.connect(function (err) {
+  if (err) {
+    console.error('Error conectando a la base de datos:', err.stack);
+    return;
+  }
+  console.log('Conectado a la base de datos');
+})
+
+function consultarUsuarios() {
+  // Conectar a la base de datos
+  const usuario = "SELECT * FROM usuario";
+  conexion.query(usuario, function (err, result) {
+    if (err) {
+      throw err;
+    };
+
+    console.log(result);
+  })
+
+}
+
+function consultarMedidas() {
+  const medida = "SELECT * FROM medida";
+  conexion.query(medida, function (err, result) {
+    if (err) {
+      throw err
+    };
+
+    console.log(result);
+  })
+
+}
 
 async function consultaUsuarios(usuario, contrasena) {
   var sql = "SELECT * FROM usuario WHERE name = ? LIMIT 1";
@@ -53,6 +81,4 @@ async function consultaUsuarios(usuario, contrasena) {
   });
 }
 
-module.exports = { consultaUsuarios };
-
-
+module.exports = { consultaUsuarios, consultarUsuarios, consultarMedidas };
