@@ -14,8 +14,8 @@ function generarContrasena(contrasena) {
 }
 
 var conexion = mysql.createConnection({
-  host: '192.168.1.224',
-  user: 'JGHJaime',
+  host: 'localhost',
+  user: 'root',
   password: 'krono',
   database: 'nutrikal',
 });
