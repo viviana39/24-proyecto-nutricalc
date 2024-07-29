@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const ddbb = require("./ddbb")
 
 const calculadoraNutriCalc = express()
-const port = 4000
+const port = 3000
 // Middleware para parsear el cuerpo de las solicitudes
 calculadoraNutriCalc.use(bodyParser.urlencoded({ extended: true }));
 calculadoraNutriCalc.use(bodyParser.json());

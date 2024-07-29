@@ -14,8 +14,8 @@ function generarContrasena(contrasena) {
 }
 
 var conexion = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
+  host: '192.168.1.224',
+  user: 'JGHJaime',
   password: 'krono',
   database: 'nutrikal',
 });
@@ -52,6 +52,12 @@ function consultarMedidas() {
   })
 
 }
+
+
+
+// INSERT INTO `nutrikal`.`medida` (`id_usuario`, `altura`, `peso`, `objetivo`) VALUES ('2', '180', '147', 'bajar');
+
+
 
 async function consultaUsuarios(usuario, contrasena) {
   var sql = "SELECT * FROM usuario WHERE name = ? LIMIT 1";
