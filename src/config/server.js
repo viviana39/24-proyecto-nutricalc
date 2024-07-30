@@ -1,16 +1,12 @@
-const path = require('path');
-const express = require('express');
+const express = require("express")
 const bodyParser = require('body-parser');
+const calculadoraNutriCalc = express()
+const port = 3000
 
-const app = express();
+// Middleware para parsear el cuerpo de las solicitudes
+calculadoraNutriCalc.set('port', process.env.PORT || port);
+calculadoraNutriCalc.use(bodyParser.urlencoded({ extended: true }));
+calculadoraNutriCalc.use(bodyParser.json());
+calculadoraNutriCalc.use(express.static('static'))
 
-// settings
-app.set('port', process.env.PORT || 3050);
-app.set('', '');
-app.set('', path.join(__dirname, '../app'));
-// middlewares
-
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static(path.join(__dirname, '../static')))
-
-module.exports = app;
+module.exports = calculadoraNutriCalc;
