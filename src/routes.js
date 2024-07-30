@@ -27,7 +27,7 @@ module.exports = calculadoraNutriCalc => {
     res.send(`--> ${nutrikalString} <--`);
   });
 
-  calculadoraNutriCalc.post('/registrar', (req, res) => {
-    console.log("Patatas en salmuera")
+  calculadoraNutriCalc.post('/login', (req, res) => {
+    res.redirect('/calculadora-peso.html')
   })
 };
