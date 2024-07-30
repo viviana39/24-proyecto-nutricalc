@@ -14,26 +14,21 @@
 </head>
 
 <body>
-    <div id="container">
-        <form id="login" action="/submit" method="post">
-            <!--usarname-->
-            <label for="username">Nombre:</label>
-            <input name="username" type="text"/>
-            <!--password-->
-            <p>
-                <label for="password">contraseña:</label>
-                <input name="password" type="text"/>
-            </p>
-            <a href="mailto:nutrikal24@gmail.com? Subject=%20Contacto%20">Has olvidado tu contraseña?</a>
-
-            <div id="lower">
-                <input type="checkbox" /><label class="check" for="checkbox">Recuerdame la contraseña</label>
-                <!-- Submit Button -->
-            </div>
-
-            <input type="submit" value="Entrar" />
-        </form>
-    </div>
+    <div class="col-md-6 mt-4 card">
+        <form class="card-body" action="/registrar" method="post">
+          <h3 class="card-title">NUTRIKAL CALCULADORA</h3>
+          <div class="form-group">
+            <input name="title" type="text" class="form-control" placeholder=" nombre Titlte">
+          </div>
+          <div class="form-group">
+            <input name="medidas" type="text" class="form-control" placeholder="contraseña Content">
+          </div>
+          <div id="lower">
+            <input type="checkbox" /><label class="check" for="checkbox">Recuerdame la contraseña</label>
+            <!-- Submit Button -->
+        </div>
+          <input type="submit" class="btn btn-primary">
+    </form>
 </body>
 
 </html>

@@ -5,7 +5,7 @@ module.exports = calculadoraNutriCalc => {
 
   calculadoraNutriCalc.get('/', (req, res) => {
     // res.send("TODO hacer cositas")
-    res.redirect('/calculadora-peso.html')
+    res.redirect('/login.html')
   })
 
   calculadoraNutriCalc.get('/pruebas-bbdd', (req, res) => {
