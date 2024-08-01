@@ -27,7 +27,15 @@ module.exports = calculadoraNutriCalc => {
     res.send(`--> ${nutrikalString} <--`);
   });
 
-  calculadoraNutriCalc.post('/login', (req, res) => {
-    res.redirect('/calculadora-peso.html')
+  calculadoraNutriCalc.post('/login-action', (req, res) => {
+    
+    var userAndPasswordVaild = false
+    
+    if(userAndPasswordVaild) 
+    {    
+      res.redirect('/calculadora-peso.html?user_id=1')
+    }
+    else
+     res.redirect('/login-error.html')
   })
 };
