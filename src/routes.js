@@ -28,14 +28,16 @@ module.exports = calculadoraNutriCalc => {
   });
 
   calculadoraNutriCalc.post('/login-action', (req, res) => {
-    
-    var userAndPasswordVaild = false
-    
-    if(userAndPasswordVaild) 
-    {    
+
+    const user = req.body.user;
+
+    var userAndPasswordValid = (user == 'pepito')
+
+    if(userAndPasswordValid) {
       res.redirect('/calculadora-peso.html?user_id=1')
     }
-    else
+    else {
      res.redirect('/login-error.html')
+    }
   })
 };
