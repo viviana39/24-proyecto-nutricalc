@@ -29,15 +29,33 @@ module.exports = calculadoraNutriCalc => {
 
   calculadoraNutriCalc.post('/login-action', (req, res) => {
 
-    const user = req.body.user;
+    // Se Ejecuta cuando ACABE la query SQL
+    function callback(usuarios) {
+      console.log("He ENCONTRADO A:")
+      console.log(usuarios)
+      console.log("=======================")
 
-    var userAndPasswordValid = (user == 'pepito')
+      console.log(usuarios.length )
+      if (usuarios.length < 1)
+      {
+        console.log("USER NOT FOUND")
+        res.redirect('/login-error.html')
+        return
+      }
 
-    if(userAndPasswordValid) {
-      res.redirect('/calculadora-peso.html?user_id=1')
+      const user = usuarios[0]
+      console.log(user.id_usuario)
+      var userAndPasswordValid = (name == 'pepito')
+  
+      if(userAndPasswordValid) {
+        res.redirect('/calculadora-peso.html?user_id=1')
+      }
+      else {
+       res.redirect('/login-error.html')
+      }      
     }
-    else {
-     res.redirect('/login-error.html')
-    }
+
+    const name = req.body.name;
+    ddbb.consultarUsuario(name, callback)
   })
 };
