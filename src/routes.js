@@ -34,28 +34,37 @@ module.exports = calculadoraNutriCalc => {
       console.log("He ENCONTRADO A:")
       console.log(usuarios)
       console.log("=======================")
-
-      console.log(usuarios.length )
-      if (usuarios.length < 1)
-      {
+    
+      console.log(usuarios.length)
+      if (usuarios.length < 1) {
         console.log("USER NOT FOUND")
-        res.redirect('/login-error.html')
+        //Se añadio la funcion de guardar Usuario. Las vairables que 
+        //se envian son las de name y password.
+        ddbb.guardarUsuario(name,password,
+            (insertId) => {
+              console.log("Nuevo usuario insertado con ID:", insertId);
+              // Redirigir al usuario después de la inserción
+              res.redirect('/calculadora-peso.html?user_id=1')
+            });
+        
         return
       }
 
       const user = usuarios[0]
-      console.log(user.id_usuario)
+      console.log(user.id_usuario);
       var userAndPasswordValid = (name == 'pepito')
-  
-      if(userAndPasswordValid) {
+
+      if (userAndPasswordValid) {
         res.redirect('/calculadora-peso.html?user_id=1')
       }
       else {
-       res.redirect('/login-error.html')
-      }      
+        res.redirect('/login-error.html')
+      }
     }
 
     const name = req.body.name;
-    ddbb.consultarUsuario(name, callback)
+    //Se añadio la vairbale password para el guardado de usuario
+    const password = req.body.password;
+    ddbb.consultarUsuario(name, callback);
   })
 };

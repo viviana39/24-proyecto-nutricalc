@@ -27,6 +27,20 @@ function consultarUsuario(name, callback) {
     callback(result)
   })
 }
+//Se creo una nueva funcion de Guardar Usuario
+function guardarUsuario(name, password, callback) {
+  const query = `INSERT INTO usuario (name, password, sexo) VALUES ('${name}', '${password}','Hombre');`
+
+  conexion.query(query, function (err, result) {
+    if (err) {
+      throw err;
+    };
+    // console.log(`USUARIOS ENCONTRADO(S): ${result.length}`)
+    callback(result)
+  })
+  
+}
+
 
 function consultarUsuarios() {
   const usuario = "SELECT * FROM usuario";
@@ -50,10 +64,11 @@ function consultarMedidas() {
   })
 }
 
-module.exports = { 
+module.exports = {
   consultarUsuario,
   consultarUsuarios,
-  consultarMedidas 
+  consultarMedidas,
+  guardarUsuario
 };
 
 /*
